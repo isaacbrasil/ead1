@@ -1,0 +1,9 @@
+void reservaQuarto();
+int tipoReserva();
+void cancelaReserva();
+void dispQuarto();
+void listagemQuartos();
+float receitaGeral();
+float servicoQuarto();
+void menu();
+void menuReserva();
