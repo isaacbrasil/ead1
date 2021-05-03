@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <malloc.h>
+
 #include "hotel.h"
 
 #define disponivel 0
@@ -17,14 +16,16 @@ typedef struct
     TIPOCHAVE chave;
     char nome[MAX_NAME];
     char cpf[11];
-    char telefone[9];
+    char telefone[10];
     char reserva;
+    int id;
+    float gasto;
 } HOSPEDE;
 typedef struct
 {
     TIPOCHAVE chave;
     int disponibilidade;
-    char nomeHospede[MAX_NAME];
+
 } QUARTO;
 typedef struct
 {
@@ -32,88 +33,59 @@ typedef struct
     HOSPEDE H[MAX];
 
 } HOTEL;
-
-//-------------------------------------- main --------------------------------------
-int main()
-
-{
-    HOTEL hotel;
-    dispQuarto(&hotel);
-    QUARTO dado, p, e;
-    HOSPEDE dadoh, ph, eh;
-    int x;
-    char operacao;
-    // menu();
-
-    listagemQuartos(&hotel);
-    scanf("%d", &x); // qual quarto reservar
-
-    reservaQuarto(&hotel, x - 1);
-    listagemQuartos(&hotel);
-
-    // scanf("%c", &operacao);
-    // do
-    // {
-    //     scanf("%c", &operacao);
-    //     if (operacao == 'R') //reserva um quarto
-    //     {
-    //         listagemQuartos(&hotel);
-    //         scanf("%d", &x);
-
-    //         reservaQuarto(&hotel, x - 1);
-    //     }
-
-    //     if (operacao == 'E') //cancela a reserva de um quarto
-    //     {
-    //     }
-
-    //     if (operacao == 'D') //vê se um quarto está vazio
-    //     {
-    //     }
-
-    //     if (operacao == 'L') //vê a lista de todos os quartos vazios
-    //     {
-    //     }
-    //     if (operacao == 'V') //valor da receita
-    //     {
-    //     }
-    //     if (operacao == 'X') //ENCERRA
-    //     {
-    //         printf("fim\n");
-    //         break;
-    //     }
-
-    // } while (1);
-    return 0;
-}
 //-------------------------------- implementação das funções --------------------------------------
 
 void menu()
 {
     printf("Ola, Seja Bem Vindo\n");
     printf("\n\n-------------------------------------- MENU ------------------------------------------------------ \n\n");
-    printf("-------------- R)  Reserva Quarto ---------------------------------------------------------------- \n");
-    printf("-------------- E)  Cancela a Reserva ------------------------------------------------------------- \n");
-    printf("-------------- D)  Checa disponibilidade de um quarto -------------------------------------------- \n");
-    printf("-------------- L)  Listagem de quartos vazios ---------------------------------------------------- \n");
-    printf("-------------- S)  Servico de quarto ------------------------------------------------------------- \n");
-    printf("-------------- V)  Valor da receita -------------------------------------------------------------- \n");
-    printf("-------------- X) SAIR DO PROGRAMA --------------------------------------------------------------- \n");
+    printf("-------------- R)  Reservar Quarto ---------------------------------------------------------------- \n");
+    printf("-------------- E)  Cancelar a Reserva ------------------------------------------------------------- \n");
+    printf("-------------- D)  Checar disponibilidade de um quarto -------------------------------------------- \n");
+    printf("-------------- L)  Listar quartos disponiveis ----------------------------------------------------- \n");
+    printf("-------------- S)  Servico de quarto -------------------------------------------------------------- \n");
+    printf("-------------- V)  Valor da receita --------------------------------------------------------------- \n");
+    printf("-------------- X) SAIR DO PROGRAMA ---------------------------------------------------------------- \n");
 }
 void menuReserva()
 {
+
     printf("Qual a sua reserva ?\n");
     printf("\n\n-------------------------------------- MENU RESERVA------------------------------------------------ \n\n");
-    printf("-------------- 1)  Normal ------------------------------------------------------------------------------- \n");
-    printf("-------------- 2)  All-inclusive ------------------------------------------------------------------------ \n");
+    printf("-------------- 1)  Cafe da Manha RS 125,00 ------------------------------------------------------------------------------- \n");
+    printf("-------------- 2)  Meia Pensao RS 150,00 ------------------------------------------------------------------------------- \n");
+    printf("-------------- 3)  Pensao Completa RS 175,00 ------------------------------------------------------------------------------- \n");
+    printf("-------------- 4)  All-inclusive RS 250,00 ------------------------------------------------------------------------ \n");
+}
+char tipoReserva(HOTEL *h)
+{
+    char reserva;
+    scanf("%c", &reserva);
+    return reserva;
 }
 void reservaQuarto(HOTEL *h, int i)
 {
     h->Q[i].disponibilidade = indisponivel;
+    h->H[i].id = i;
     printf("Quarto reservado com sucesso!\n");
 }
 
-int tipoReserva();
+void getDadoCliente(HOTEL *h)
+{
+    printf("NOME: \n");
+    scanf("%s", h->H->nome); // ver como scanear strings
+    printf("CPF: \n");
+    scanf("%s", h->H->cpf);
+    printf("TELEFONE (XXXXX-XXXX): \n");
+    scanf("%s", h->H->telefone);
+}
+void printDadoCliente(HOTEL *h)
+{
+    printf("NOME: %s\n", h->H->nome);
+    printf("CPF: %s\n", h->H->cpf);
+    printf("TELEFONE: %s\n", h->H->telefone);
+}
+
 void cancelaReserva();
 
 void dispQuarto(HOTEL *h) // ok

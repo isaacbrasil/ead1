@@ -1,9 +1,16 @@
-void reservaQuarto();
-int tipoReserva();
-void cancelaReserva();
-void dispQuarto();
-void listagemQuartos();
-float receitaGeral();
-float servicoQuarto();
-void menu();
-void menuReserva();
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <string.h>
+
+void reservaQuarto();    //OK
+void getDadoCliente();   //
+void printDadoCliente(); //
+char tipoReserva();      //
+void cancelaReserva();   //
+void dispQuarto();       //OK
+void listagemQuartos();  //OK
+float receitaGeral();    //
+float servicoQuarto();   //
+void menu();             //OK
+void menuReserva();      //
