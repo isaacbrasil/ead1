@@ -15,8 +15,8 @@ typedef struct
 {
     TIPOCHAVE chave;
     char nome[MAX_NAME];
-    char cpf[11];
-    char telefone[10];
+    char cpf[12];
+    char telefone[11];
     char reserva;
     int id;
     float gasto;
@@ -59,10 +59,35 @@ void menuReserva()
 }
 char tipoReserva(HOTEL *h)
 {
-    char reserva;
-    scanf("%c", &reserva);
-    return reserva;
+    scanf("%c", &h->H->reserva);
+    return h->H->reserva;
 }
+void valorReserva(HOTEL *h) // talvez trocar char por HOSPEDE *c e as variaveis sao c.reserva
+{
+    h->H->gasto = 0;
+
+    if (h->H->reserva == '1')
+    {
+        h->H->gasto = 125;
+        printf("%f", h->H->gasto);
+    }
+    if (h->H->reserva == '2')
+    {
+        h->H->gasto = 150;
+        printf("%f", h->H->gasto);
+    }
+    if (h->H->reserva == '3')
+    {
+        h->H->gasto = 175;
+        printf("%f", h->H->gasto);
+    }
+    if (h->H->reserva == '4')
+    {
+        h->H->gasto = 250;
+        printf("%f", h->H->gasto);
+    }
+}
+
 void reservaQuarto(HOTEL *h, int i)
 {
     h->Q[i].disponibilidade = indisponivel;
@@ -86,7 +111,14 @@ void printDadoCliente(HOTEL *h)
     printf("TELEFONE: %s\n", h->H->telefone);
 }
 
-void cancelaReserva();
+void cancelaReserva(HOTEL *h, int i)
+{
+    //     if (h->Q[i].disponibilidade = indisponivel)
+    //     {
+    //         h->Q[i].disponibilidade = disponivel;
+    //         h->H[i].nome = 'a';
+    //     }
+}
 
 void dispQuarto(HOTEL *h) // ok
 {
@@ -110,6 +142,17 @@ void listagemQuartos(HOTEL *h) // ok
     }
     printf("\n");
 }
-float receitaGeral();
-float servicoQuarto();
+float receitaGeral(); // soma servicoQuarto + Reserva
+void menuServicoQuarto()
+{
+    printf("Servicos Extras: \n");
+    printf("\n\n-------------------------------------- Frigobar ------------------------------------------------ \n\n");
+    printf("-------------- 1) Lata Refrigerante - R$ 3,50 ------------------------------------------------------------------------------ \n");
+    printf("-------------- 2) Agua - Mineral R$ 2,00 ------------------------------------------------------------------------------- \n");
+    printf("-------------- 3) Suco - R$ 3,00 ------------------------------------------------------------------------------- \n");
+}
+float servicoQuarto(HOTEL *h)
+{
+    return
+}
 void menu();
