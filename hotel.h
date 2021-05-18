@@ -3,11 +3,19 @@
 #include <malloc.h>
 #include <string.h>
 
-void reservaQuarto();     //OK
-void valorReserva();      //
-void getDadoCliente();    //
-void printDadoCliente();  //
-char tipoReserva();       //
+typedef int bool;
+typedef int TIPOCHAVE;
+typedef struct hotel HOTEL;
+typedef struct quarto QUARTO;
+typedef struct hospede HOSPEDE;
+
+void reservaQuarto(); //OK
+HOTEL criaHotel();    //
+void valorReserva();  //
+void mostraHospedes();
+void CadastraHospede();   //OK
+void printDadoHospede();  //OK
+char tipoReserva();       //OK
 void cancelaReserva();    //
 void dispQuarto();        //OK
 void listagemQuartos();   //OK

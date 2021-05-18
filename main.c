@@ -7,10 +7,8 @@ int main()
     dispQuarto(&hotel);
     QUARTO dado, p, e;
     HOSPEDE hospede, dadoh, ph, eh, reservaTipo;
-    int x;
-    char operacao;
-
-    menu();
+    int x, i = 0;
+    char operacao = '0';
 
     // listagemQuartos(&hotel);
     // printf("Qual quarto voce quer reservar?\n");
@@ -20,49 +18,33 @@ int main()
 
     // printf("id do cliente: %d\n", hotel.H->id);
     // listagemQuartos(&hotel);
-
-    scanf("%c", &operacao);
-    do
+    printf("\n Ola, Seja Bem Vindo\n");
+    while (operacao != 'X')
     {
+        menu();
+        scanf(" %c", &operacao);
+
         // scanf("%c", &operacao);
+
         if (operacao == 'R') //reserva um quarto
         {
             char reservaTipo;
+
+            CadastraHospede(&hotel, i); //i = id mas ele pede o id dentro da função
+            // printDadoHospede(&hotel, i);
+
             printf("Qual quarto voce quer reservar?\n");
             listagemQuartos(&hotel); //ANALISAR TODOS OS "&" DAS FUNÇÕES
             scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
-            reservaQuarto(&hotel, x - 1);
-            getDadoCliente(&hotel);
-            printDadoCliente(&hotel);
+            printf("Qual id do Hospede a reservar quarto?\n");
+            reservaQuarto(&hotel, x, i);
+            i++;
             menuReserva();
-
-            printf("alo\n");
-            reservaTipo = tipoReserva(&hotel);
-            valorReserva(&hotel);
-            // if (tipoReserva(&hotel) == '1')
-            // {
-            //     printf("alo\n");
-            //     hotel.H->gasto = 125;
-            //     // dadoh.gasto = 125;
-            //     printf("alo\n");
-            //     // printf("%f", dadoh.gasto);
-            // }
-            // if (tipoReserva(&hotel) == '2')
-            // {
-            //     dadoh.gasto = 150;
-            // }
-            // if (tipoReserva(&hotel) == '3')
-            // {
-            //     dadoh.gasto = 175;
-            // }
-            // if (tipoReserva(&hotel) == '4')
-            // {
-            //     dadoh.gasto = 250;
-            // }
         }
 
         if (operacao == 'E') //cancela a reserva de um quarto
         {
+            // cancelaReserva();
         }
 
         if (operacao == 'D') //vê se um quarto está vazio
@@ -75,12 +57,16 @@ int main()
         if (operacao == 'V') //valor da receita
         {
         }
-        if (operacao == 'X') //ENCERRA
+        // if (operacao == 'X') //ENCERRA
+        // {
+        //     printf("PROGRAMA ENCERRADO\n");
+        //     break;
+        // }
+        if (operacao == 'M') //mostra todos os clientes
         {
-            printf("PROGRAMA ENCERRADO\n");
-            break;
+            mostraHospedes(&hotel, i);
         }
-
-    } while (1);
+    }
+    printf("PROGRAMA ENCERRADO\n");
     return 0;
 }
