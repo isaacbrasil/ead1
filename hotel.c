@@ -91,7 +91,7 @@ void reservaQuarto(HOTEL *h, int i, int idHosp)
     i = i - 1;
     h->Q[i].disponibilidade = indisponivel;
     h->H[idHosp].quarto = i;
-    printf("Quarto reservado com sucesso!\n");
+    printf("\nQuarto reservado com sucesso!\n");
 }
 
 void CadastraHospede(HOTEL *h, int i)
@@ -128,7 +128,7 @@ void CadastraHospede(HOTEL *h, int i)
 }
 void printDadoHospede(HOTEL *h, int i)
 {
-    printf("NOME: %s\n", h->H[i].nome);
+    printf("\nNOME: %s\n", h->H[i].nome);
     printf("CPF: %s\n", h->H[i].cpf);
     printf("TELEFONE: %s\n", h->H[i].telefone);
     printf("CODIGO: %d\n", h->H[i].id);
