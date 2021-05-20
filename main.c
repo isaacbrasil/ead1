@@ -31,15 +31,16 @@ int main()
             char reservaTipo;
 
             CadastraHospede(&hotel, i); //i = id mas ele pede o id dentro da função
-            // printDadoHospede(&hotel, i);
+                                        // printDadoHospede(&hotel, i);
+            printDadoHospede(&hotel, i);
 
             printf("Qual quarto voce quer reservar?\n");
             listagemQuartos(&hotel); //ANALISAR TODOS OS "&" DAS FUNÇÕES
             scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
             printf("Qual id do Hospede a reservar quarto?\n");
             reservaQuarto(&hotel, x, i);
+            vetorReservados(&hotel, x);
             i++;
-            menuReserva();
         }
 
         if (operacao == 'E') //cancela a reserva de um quarto

@@ -34,7 +34,7 @@ struct hotel
 void menu()
 {
 
-    printf("\n\n-------------------------------------- MENU ------------------------------------------------- \n\n");
+    printf("\n\n-------------------------------------- MENU --------------------------------------------------- \n\n");
     printf("-------------- R)  Reservar Quarto ---------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- E)  Cancelar a Reserva ------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- D)  Checar disponibilidade de um quarto -------------------------------------------- \n");
@@ -102,7 +102,7 @@ void CadastraHospede(HOTEL *h, int i)
     scanf("%s", h->H[i].cpf);
     printf("TELEFONE (XXXXX-XXXX): \n");
     scanf("%s", h->H[i].telefone);
-    h->H[i].id = i;
+    h->H[i].id = i + 1;
     menuReserva();
 
     switch (tipoReserva(h, i))
@@ -133,7 +133,7 @@ void printDadoHospede(HOTEL *h, int i)
     printf("TELEFONE: %s\n", h->H[i].telefone);
     printf("CODIGO: %d\n", h->H[i].id);
     printf("RESERVA: %c\n", h->H[i].reserva);
-    printf("TIPO: %.2f\n", h->H[i].gasto);
+    printf("GASTO: %.2f\n\n", h->H[i].gasto);
 }
 
 void cancelaReserva(HOTEL *h, int i)
@@ -149,9 +149,9 @@ void mostraHospedes(HOTEL *h, int i)
     int j;
     for (j = 0; j < MAX; j++)
     {
-        if (h->H[i].id != -1)
+        if (h->H->id != NULL && h->H->id > 0 && h->H->id < MAX)
         {
-            printDadoHospede(h, i);
+            printDadoHospede(h, j);
         }
     }
 }
@@ -181,10 +181,10 @@ float receitaGeral(); // soma servicoQuarto + Reserva
 void menuServicoQuarto()
 {
     printf("Servicos Extras: \n");
-    printf("\n\n-------------------------------------- Frigobar ------------------------------------------------ \n\n");
+    printf("\n\n---------- Frigobar -------------------------------------------------------------------------------------------------- \n\n");
     printf("-------------- 1) Lata Refrigerante - R$ 3,50 ------------------------------------------------------------------------------ \n");
-    printf("-------------- 2) Agua - Mineral R$ 2,00 ------------------------------------------------------------------------------- \n");
-    printf("-------------- 3) Suco - R$ 3,00 ------------------------------------------------------------------------------- \n");
+    printf("-------------- 2) Agua - Mineral R$ 2,00 ----------------------------------------------------------------------------------- \n");
+    printf("-------------- 3) Suco - R$ 3,00 ------------------------------------------------------------------------------------------- \n");
 }
 // float servicoQuarto(HOTEL *h)
 // {

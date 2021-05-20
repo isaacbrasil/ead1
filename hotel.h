@@ -9,18 +9,19 @@ typedef struct hotel HOTEL;
 typedef struct quarto QUARTO;
 typedef struct hospede HOSPEDE;
 
-void reservaQuarto(); //OK
-HOTEL criaHotel();    //
-void valorReserva();  //
-void mostraHospedes();
+void reservaQuarto();     //OK
+HOTEL criaHotel();        //OK
+void valorReserva();      //OK
+void mostraHospedes();    //
+void vetorReservados();   //
 void CadastraHospede();   //OK
 void printDadoHospede();  //OK
 char tipoReserva();       //OK
 void cancelaReserva();    //
-void dispQuarto();        //OK
+void dispQuarto();        //
 void listagemQuartos();   //OK
 float receitaGeral();     //
 float servicoQuarto();    //
-void menuServicoQuarto(); //
+void menuServicoQuarto(); //OK
 void menu();              //OK
-void menuReserva();       //
+void menuReserva();       //OK
