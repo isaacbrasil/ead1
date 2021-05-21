@@ -93,11 +93,11 @@ void reservaQuarto(HOTEL *h, int i, int idHosp)
     h->H[idHosp].quarto = i;
     printf("\nQuarto reservado com sucesso!\n");
 }
-
 void CadastraHospede(HOTEL *h, int i)
 {
     printf("NOME: \n");
-    scanf("%s", h->H[i].nome); // ver como scanear strings
+    getchar();
+    fgets(h->H[i].nome, MAX_NAME, stdin);
     printf("CPF: \n");
     scanf("%s", h->H[i].cpf);
     printf("TELEFONE (XXXXX-XXXX): \n");
@@ -126,8 +126,10 @@ void CadastraHospede(HOTEL *h, int i)
         break;
     }
 }
+
 void printDadoHospede(HOTEL *h, int i)
 {
+
     printf("\nNOME: %s\n", h->H[i].nome);
     printf("CPF: %s\n", h->H[i].cpf);
     printf("TELEFONE: %s\n", h->H[i].telefone);
@@ -144,12 +146,21 @@ void cancelaReserva(HOTEL *h, int i)
         h->H[i].id = -1;
     }
 }
+void inicializaID(HOTEL *h)
+{
+    int j;
+    for (j = 0; j < MAX; j++)
+    {
+
+        h->H[j].id = 0;
+    }
+}
 void mostraHospedes(HOTEL *h, int i)
 {
     int j;
     for (j = 0; j < MAX; j++)
     {
-        if (h->H->id != NULL && h->H->id > 0 && h->H->id < MAX)
+        if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
         {
             printDadoHospede(h, j);
         }

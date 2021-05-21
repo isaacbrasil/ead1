@@ -9,11 +9,11 @@ typedef struct hotel HOTEL;
 typedef struct quarto QUARTO;
 typedef struct hospede HOSPEDE;
 
+void inicializaID();      //OK
 void reservaQuarto();     //OK
 HOTEL criaHotel();        //OK
 void valorReserva();      //OK
-void mostraHospedes();    //
-void vetorReservados();   //
+void mostraHospedes();    //OK
 void CadastraHospede();   //OK
 void printDadoHospede();  //OK
 char tipoReserva();       //OK

@@ -10,14 +10,7 @@ int main()
     int x, i = 0;
     char operacao = '0';
 
-    // listagemQuartos(&hotel);
-    // printf("Qual quarto voce quer reservar?\n");
-    // scanf("%d", &x); // qual quarto reservar
-
-    // reservaQuarto(&hotel, x - 1);
-
-    // printf("id do cliente: %d\n", hotel.H->id);
-    // listagemQuartos(&hotel);
+    inicializaID(&hotel);
     printf("\n Ola, Seja Bem Vindo\n");
     while (operacao != 'X')
     {
@@ -39,7 +32,7 @@ int main()
             scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
             printf("Qual id do Hospede a reservar quarto?\n");
             reservaQuarto(&hotel, x, i);
-            vetorReservados(&hotel, x);
+            // vetorReservados(&hotel, x);
             i++;
         }
 
