@@ -37,7 +37,6 @@ void menu()
     printf("\n\n-------------------------------------- MENU --------------------------------------------------- \n\n");
     printf("-------------- R)  Reservar Quarto ---------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- E)  Cancelar a Reserva ------------------------------------------------------------- \n"); //ver se hospede i existe
-    printf("-------------- D)  Checar disponibilidade de um quarto -------------------------------------------- \n");
     printf("-------------- L)  Listar quartos disponiveis ----------------------------------------------------- \n");
     printf("-------------- S)  Servico de quarto -------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- V)  Valor da receita --------------------------------------------------------------- \n"); //ver se hospede i existe
@@ -59,10 +58,6 @@ char tipoReserva(HOTEL *h, int i)
     scanf(" %c", &h->H[i].reserva);
     return h->H[i].reserva;
 }
-// HOTEL criaHotel()
-// {
-//     HOTEL hotel;
-// }
 void valorReserva(HOTEL *h, int i) // talvez trocar char por HOSPEDE *c e as variaveis sao c.reserva
 {
     h->H->gasto = 0;
@@ -191,13 +186,46 @@ void listagemQuartos(HOTEL *h) // ok
 float receitaGeral(); // soma servicoQuarto + Reserva
 void menuServicoQuarto()
 {
-    printf("Servicos Extras: \n");
-    printf("\n\n---------- Frigobar -------------------------------------------------------------------------------------------------- \n\n");
+    // printf("Servicos Extras: \n");
+    printf("\n\n---------- Frigobar --------------------------------------------------------------------------------------------------- \n\n");
     printf("-------------- 1) Lata Refrigerante - R$ 3,50 ------------------------------------------------------------------------------ \n");
     printf("-------------- 2) Agua - Mineral R$ 2,00 ----------------------------------------------------------------------------------- \n");
     printf("-------------- 3) Suco - R$ 3,00 ------------------------------------------------------------------------------------------- \n");
+    printf("\n\n---------- Lanches --------------------------------------------------------------------------------------------------- \n\n");
+    printf("-------------- 4) Amendoim - R$ 4,50 ------------------------------------------------------------------------------------------- \n");
+    printf("-------------- 5) Chocolate - R$ 3,00 ------------------------------------------------------------------------------------------- \n");
 }
-// float servicoQuarto(HOTEL *h)
-// {
-// }
+float servicoQuarto(HOTEL *h, int i)
+{
+    char servico;
+
+    menuServicoQuarto();
+
+    scanf(" %c", &servico);
+
+    switch (servico)
+    {
+    case '1':
+        h->H[i].gasto = 3.5;
+        break;
+    case '2':
+        h->H[i].gasto = 2;
+
+        break;
+    case '3':
+        h->H[i].gasto = 3;
+
+        break;
+    case '4':
+        h->H[i].gasto = 4.5;
+
+        break;
+    case '5':
+        h->H[i].gasto = 3;
+
+        break;
+    default:
+        break;
+    }
+}
 void menu();

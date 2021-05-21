@@ -18,7 +18,6 @@ void CadastraHospede();   //OK
 void printDadoHospede();  //OK
 char tipoReserva();       //OK
 void cancelaReserva();    //
-void dispQuarto();        //
 void listagemQuartos();   //OK
 float receitaGeral();     //
 float servicoQuarto();    //

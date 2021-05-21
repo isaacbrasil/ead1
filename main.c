@@ -41,21 +41,18 @@ int main()
             // cancelaReserva();
         }
 
-        if (operacao == 'D') //vê se um quarto está vazio
+        if (operacao == 'S') //servico de quarto frigobar
         {
-        }
 
+            // servicoQuarto(&hotel);
+        }
         if (operacao == 'L') //vê a lista de todos os quartos vazios
         {
+            listagemQuartos(&hotel);
         }
         if (operacao == 'V') //valor da receita
         {
         }
-        // if (operacao == 'X') //ENCERRA
-        // {
-        //     printf("PROGRAMA ENCERRADO\n");
-        //     break;
-        // }
         if (operacao == 'M') //mostra todos os clientes
         {
             mostraHospedes(&hotel, i);
