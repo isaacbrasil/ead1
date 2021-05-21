@@ -125,11 +125,27 @@ void CadastraHospede(HOTEL *h, int i)
 void printDadoHospede(HOTEL *h, int i)
 {
 
-    printf("\nNOME: %s\n", h->H[i].nome);
+    printf("\nNOME: %s", h->H[i].nome);
     printf("CPF: %s\n", h->H[i].cpf);
     printf("TELEFONE: %s\n", h->H[i].telefone);
     printf("CODIGO: %d\n", h->H[i].id);
-    printf("RESERVA: %c\n", h->H[i].reserva);
+    if (h->H[i].reserva == '1')
+    {
+        printf("RESERVA: %c - Cafe da Manha\n", h->H[i].reserva);
+    }
+    if (h->H[i].reserva == '2')
+    {
+        printf("RESERVA: %c - Meia Pensao\n", h->H[i].reserva);
+    }
+    if (h->H[i].reserva == '3')
+    {
+        printf("RESERVA: %c - Pensao Completa\n", h->H[i].reserva);
+    }
+    if (h->H[i].reserva == '4')
+    {
+        printf("RESERVA: %c - All-inclusive\n", h->H[i].reserva);
+    }
+
     printf("GASTO: %.2f\n\n", h->H[i].gasto);
 }
 
@@ -153,6 +169,8 @@ void inicializaID(HOTEL *h)
 void mostraHospedes(HOTEL *h, int i)
 {
     int j;
+    printf("\n\n------ TODOS OS HOSPEDES ------ \n\n");
+
     for (j = 0; j < MAX; j++)
     {
         if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
@@ -160,6 +178,23 @@ void mostraHospedes(HOTEL *h, int i)
             printDadoHospede(h, j);
         }
     }
+    printf("\n\n----- FIM DA LISTA ----------- \n\n");
+}
+void receitaGeral(HOTEL *h, int i) // soma servicoQuarto + Reserva
+{
+
+    int j;
+    printf("\n\n------ RECEITA GERAL ------ \n\n");
+
+    for (j = 0; j < MAX; j++)
+    {
+        if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
+        {
+            printf("\nNOME: %s", h->H[j].nome);
+            printf("GASTO TOTAL: %.2f\n\n", h->H[j].gasto);
+        }
+    }
+    printf("\n\n----- FIM DA LISTA ----------- \n\n");
 }
 void dispQuarto(HOTEL *h) // ok
 {
@@ -183,7 +218,7 @@ void listagemQuartos(HOTEL *h) // ok
     }
     printf("\n");
 }
-float receitaGeral(); // soma servicoQuarto + Reserva
+
 void menuServicoQuarto()
 {
     // printf("Servicos Extras: \n");
@@ -199,6 +234,8 @@ float servicoQuarto(HOTEL *h, int i)
 {
     char servico;
 
+    i = h->H[i].id;
+
     menuServicoQuarto();
 
     scanf(" %c", &servico);
@@ -206,22 +243,22 @@ float servicoQuarto(HOTEL *h, int i)
     switch (servico)
     {
     case '1':
-        h->H[i].gasto = 3.5;
+        h->H[i].gasto += 3.5;
         break;
     case '2':
-        h->H[i].gasto = 2;
+        h->H[i].gasto += 2;
 
         break;
     case '3':
-        h->H[i].gasto = 3;
+        h->H[i].gasto += 3;
 
         break;
     case '4':
-        h->H[i].gasto = 4.5;
+        h->H[i].gasto += 4.5;
 
         break;
     case '5':
-        h->H[i].gasto = 3;
+        h->H[i].gasto += 3;
 
         break;
     default:

@@ -44,7 +44,8 @@ int main()
         if (operacao == 'S') //servico de quarto frigobar
         {
 
-            // servicoQuarto(&hotel);
+            servicoQuarto(&hotel, i);
+            i++;
         }
         if (operacao == 'L') //vê a lista de todos os quartos vazios
         {
@@ -52,6 +53,7 @@ int main()
         }
         if (operacao == 'V') //valor da receita
         {
+            receitaGeral(&hotel, i);
         }
         if (operacao == 'M') //mostra todos os clientes
         {

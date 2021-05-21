@@ -19,7 +19,7 @@ void printDadoHospede();  //OK
 char tipoReserva();       //OK
 void cancelaReserva();    //
 void listagemQuartos();   //OK
-float receitaGeral();     //
+void receitaGeral();      //
 float servicoQuarto();    //
 void menuServicoQuarto(); //OK
 void menu();              //OK
