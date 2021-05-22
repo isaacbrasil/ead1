@@ -58,28 +58,28 @@ char tipoReserva(HOTEL *h, int i)
     scanf(" %c", &h->H[i].reserva);
     return h->H[i].reserva;
 }
-void valorReserva(HOTEL *h, int i) // talvez trocar char por HOSPEDE *c e as variaveis sao c.reserva
-{
-    h->H->gasto = 0;
+// void valorReserva(HOTEL *h, int i) // talvez trocar char por HOSPEDE *c e as variaveis sao c.reserva
+// {
+//     h->H->gasto = 0;
 
-    if (h->H[i].reserva == '1')
-    {
-        h->H[i].gasto = 125;
-    }
-    if (h->H[i].reserva == '2')
-    {
-        h->H[i].gasto = 150;
-    }
-    if (h->H[i].reserva == '3')
-    {
-        h->H[i].gasto = 175;
-    }
-    if (h->H[i].reserva == '4')
-    {
-        h->H[i].gasto = 250;
-    }
-    printf("%.2f", h->H[i].gasto);
-}
+//     if (h->H[i].reserva == '1')
+//     {
+//         h->H[i].gasto = 125;
+//     }
+//     if (h->H[i].reserva == '2')
+//     {
+//         h->H[i].gasto = 150;
+//     }
+//     if (h->H[i].reserva == '3')
+//     {
+//         h->H[i].gasto = 175;
+//     }
+//     if (h->H[i].reserva == '4')
+//     {
+//         h->H[i].gasto = 250;
+//     }
+//     printf("%.2f", h->H[i].gasto);
+// }
 
 void reservaQuarto(HOTEL *h, int i, int idHosp)
 {
@@ -121,7 +121,21 @@ void CadastraHospede(HOTEL *h, int i)
         break;
     }
 }
+void cancelaReserva(HOTEL *h, int i)
+{
 
+    i--;
+
+    if (h->Q[i].disponibilidade == disponivel)
+    {
+        printf("Esse quarto esta disponivel: \n");
+    }
+    else
+    {
+        h->Q[i].disponibilidade = disponivel;
+        printf("Reserva cancelada com sucesso: \n");
+    }
+}
 void printDadoHospede(HOTEL *h, int i)
 {
 
@@ -149,14 +163,6 @@ void printDadoHospede(HOTEL *h, int i)
     printf("GASTO: %.2f\n\n", h->H[i].gasto);
 }
 
-void cancelaReserva(HOTEL *h, int i)
-{
-    if (h->Q[i].disponibilidade == indisponivel)
-    {
-        h->Q[i].disponibilidade = disponivel;
-        h->H[i].id = -1;
-    }
-}
 void inicializaID(HOTEL *h)
 {
     int j;
@@ -173,9 +179,12 @@ void mostraHospedes(HOTEL *h, int i)
 
     for (j = 0; j < MAX; j++)
     {
-        if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
+        if (h->Q[j].disponibilidade == indisponivel)
         {
-            printDadoHospede(h, j);
+            if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
+            {
+                printDadoHospede(h, j);
+            }
         }
     }
     printf("\n\n----- FIM DA LISTA ----------- \n\n");
@@ -191,6 +200,7 @@ void receitaGeral(HOTEL *h, int i) // soma servicoQuarto + Reserva
         if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
         {
             printf("\nNOME: %s", h->H[j].nome);
+            printf("CPF: %s\n", h->H[j].cpf);
             printf("GASTO TOTAL: %.2f\n\n", h->H[j].gasto);
         }
     }
@@ -233,8 +243,7 @@ void menuServicoQuarto()
 float servicoQuarto(HOTEL *h, int i)
 {
     char servico;
-
-    i = h->H[i].id;
+    i--;
 
     menuServicoQuarto();
 
