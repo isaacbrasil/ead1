@@ -17,10 +17,10 @@ void mostraHospedes();    //OK
 void CadastraHospede();   //OK
 void printDadoHospede();  //OK
 char tipoReserva();       //OK
-void cancelaReserva();    //
+void cancelaReserva();    //CADASTRAR HOSPEDE NOVO NO MESMO LUGAR DO ANTERIOR DA PROBLEMA
 void listagemQuartos();   //OK
-void receitaGeral();      //
-float servicoQuarto();    //
+void receitaGeral();      //OK
+float servicoQuarto();    //OK
 void menuServicoQuarto(); //OK
 void menu();              //OK
 void menuReserva();       //OK

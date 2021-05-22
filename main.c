@@ -33,7 +33,7 @@ int main()
             printf("Qual id do Hospede a reservar quarto?\n");
             reservaQuarto(&hotel, x, i);
             // vetorReservados(&hotel, x);
-            i++; //3
+            i++;
         }
 
         if (operacao == 'E') //cancela a reserva de um quarto
