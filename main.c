@@ -42,6 +42,7 @@ int main()
 
             scanf("%d", &i);
             cancelaReserva(&hotel, i);
+            i--;
         }
 
         if (operacao == 'S') //servico de quarto frigobar
