@@ -28,7 +28,6 @@ int main()
             printf("Qual quarto voce quer reservar?\n");
             listagemQuartos(&hotel); //ANALISAR TODOS OS "&" DAS FUNÇÕES
             scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
-            printf("Qual id do Hospede a reservar quarto?\n");
             reservaQuarto(&hotel, x, i);
             i++;
         }
@@ -60,6 +59,7 @@ int main()
         }
         if (operacao == 'M') //mostra todos os clientes
         {
+
             mostraHospedes(&hotel, i);
         }
     }
