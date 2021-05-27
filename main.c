@@ -17,8 +17,6 @@ int main()
         menu();
         scanf(" %c", &operacao);
 
-        // scanf("%c", &operacao);
-
         if (operacao == 'R') //reserva um quarto
         {
             char reservaTipo;
@@ -28,11 +26,9 @@ int main()
             printDadoHospede(&hotel, i);
 
             printf("Qual quarto voce quer reservar?\n");
-            listagemQuartos(&hotel); //ANALISAR TODOS OS "&" DAS FUNÇÕES
-            scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
-            printf("Qual id do Hospede a reservar quarto?\n");
+            listagemQuartos(&hotel);
+            scanf("%d", &x); // SCANEIA UM QUARTO A SER RESERVADO
             reservaQuarto(&hotel, x, i);
-            // vetorReservados(&hotel, x);
             i++;
         }
 
@@ -40,7 +36,7 @@ int main()
         {
             printf("Digite o id do Hospede a cancelar reserva: \n");
 
-            scanf("%d", &i);
+            scanf("%d", &i); //4 3
             cancelaReserva(&hotel, i);
             i--;
         }
@@ -63,6 +59,7 @@ int main()
         }
         if (operacao == 'M') //mostra todos os clientes
         {
+
             mostraHospedes(&hotel, i);
         }
     }
