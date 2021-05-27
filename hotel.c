@@ -4,7 +4,7 @@
 #define disponivel 0
 #define indisponivel 1
 
-#define MAX 50
+#define MAX 40
 #define MAX_NAME 80
 #define MAX_QUARTO 40
 
@@ -60,7 +60,7 @@ char tipoReserva(HOTEL *h, int i)
 }
 void reservaQuarto(HOTEL *h, int i, int idHosp)
 {
-    i = i - 1;
+    i--;
     h->Q[i].disponibilidade = indisponivel;
     h->H[idHosp].quarto = i;
     printf("\nQuarto reservado com sucesso!\n");
@@ -105,12 +105,12 @@ void cancelaReserva(HOTEL *h, int i)
 
     if (h->Q[i].disponibilidade == disponivel)
     {
-        printf("Esse quarto esta disponivel: \n");
+        printf("Esse quarto esta disponivel! \n");
     }
     else
     {
         h->Q[i].disponibilidade = disponivel;
-        printf("Reserva cancelada com sucesso: \n");
+        printf("Reserva cancelada com sucesso! \n");
     }
 }
 void printDadoHospede(HOTEL *h, int i)
@@ -156,7 +156,8 @@ void mostraHospedes(HOTEL *h, int i)
 
     for (j = 0; j < MAX; j++)
     {
-        if (h->Q[j].disponibilidade == indisponivel)
+
+        if (h->Q[j].disponibilidade == indisponivel) // PROBLEMA AQUI?? (SEM ISSO FUNCIONA MAS QUANDO TIRA NAO APAGA UM HOSPEDE CANCELADO)
         {
             if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
             {
@@ -164,6 +165,7 @@ void mostraHospedes(HOTEL *h, int i)
             }
         }
     }
+
     printf("\n\n----- FIM DA LISTA ----------- \n\n");
 }
 void receitaGeral(HOTEL *h, int i)
