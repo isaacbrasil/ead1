@@ -34,9 +34,10 @@ int main()
 
         if (operacao == 'E') //cancela a reserva de um quarto
         {
-            printf("Digite o id do Hospede a cancelar reserva: \n");
+            printf("Digite o ID do hospede: \n");
 
             scanf("%d", &i); //4 3
+
             cancelaReserva(&hotel, i);
             i--;
         }

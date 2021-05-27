@@ -41,7 +41,7 @@ void menu()
     printf("-------------- S)  Servico de quarto -------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- V)  Valor da receita --------------------------------------------------------------- \n"); //ver se hospede i existe
     printf("-------------- M)  Mostra todos os Hospedes ------------------------------------------------------- \n"); //ver se hospede i existe
-    printf("-------------- X) SAIR DO PROGRAMA ---------------------------------------------------------------- \n");
+    printf("-------------- X)  SAIR DO PROGRAMA --------------------------------------------------------------- \n");
 }
 void menuReserva()
 {
@@ -105,7 +105,7 @@ void cancelaReserva(HOTEL *h, int i)
 
     if (h->Q[i].disponibilidade == disponivel)
     {
-        printf("Esse quarto esta disponivel! \n");
+        printf("Esse quarto ja esta disponivel! \n");
     }
     else
     {
@@ -149,20 +149,21 @@ void inicializaID(HOTEL *h)
         h->H[j].id = 0;
     }
 }
-void mostraHospedes(HOTEL *h, int i)
+void mostraHospedes(HOTEL *h, int i) // CONTADOR I ?
 {
-    int j;
+    int j, aux = 0, excluiquarto = 0, temp = 0;
     printf("\n\n------ TODOS OS HOSPEDES ------ \n\n");
+
+    // PROBLEMA AQUI?? (SEM ISSO FUNCIONA MAS QUANDO TIRA NAO APAGA UM HOSPEDE CANCELADO)
 
     for (j = 0; j < MAX; j++)
     {
 
         if (h->Q[j].disponibilidade == indisponivel) // PROBLEMA AQUI?? (SEM ISSO FUNCIONA MAS QUANDO TIRA NAO APAGA UM HOSPEDE CANCELADO)
         {
-            if (h->H[j].id == (int)h->H[j].id && h->H[j].id <= MAX && h->H[j].id > 0)
-            {
-                printDadoHospede(h, j);
-            }
+            printDadoHospede(h, aux);
+            aux++;
+            temp = j + 1;
         }
     }
 
