@@ -17,8 +17,6 @@ int main()
         menu();
         scanf(" %c", &operacao);
 
-        // scanf("%c", &operacao);
-
         if (operacao == 'R') //reserva um quarto
         {
             char reservaTipo;
@@ -32,7 +30,6 @@ int main()
             scanf("%d", &x);         // talvez não seja x e sim TIPOCHAVE chave da struct quarto
             printf("Qual id do Hospede a reservar quarto?\n");
             reservaQuarto(&hotel, x, i);
-            // vetorReservados(&hotel, x);
             i++;
         }
 

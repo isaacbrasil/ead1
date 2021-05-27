@@ -58,29 +58,6 @@ char tipoReserva(HOTEL *h, int i)
     scanf(" %c", &h->H[i].reserva);
     return h->H[i].reserva;
 }
-// void valorReserva(HOTEL *h, int i) // talvez trocar char por HOSPEDE *c e as variaveis sao c.reserva
-// {
-//     h->H->gasto = 0;
-
-//     if (h->H[i].reserva == '1')
-//     {
-//         h->H[i].gasto = 125;
-//     }
-//     if (h->H[i].reserva == '2')
-//     {
-//         h->H[i].gasto = 150;
-//     }
-//     if (h->H[i].reserva == '3')
-//     {
-//         h->H[i].gasto = 175;
-//     }
-//     if (h->H[i].reserva == '4')
-//     {
-//         h->H[i].gasto = 250;
-//     }
-//     printf("%.2f", h->H[i].gasto);
-// }
-
 void reservaQuarto(HOTEL *h, int i, int idHosp)
 {
     i = i - 1;
@@ -189,7 +166,7 @@ void mostraHospedes(HOTEL *h, int i)
     }
     printf("\n\n----- FIM DA LISTA ----------- \n\n");
 }
-void receitaGeral(HOTEL *h, int i) // soma servicoQuarto + Reserva
+void receitaGeral(HOTEL *h, int i)
 {
 
     int j;
@@ -231,7 +208,7 @@ void listagemQuartos(HOTEL *h) // ok
 
 void menuServicoQuarto()
 {
-    // printf("Servicos Extras: \n");
+
     printf("\n\n---------- Frigobar --------------------------------------------------------------------------------------------------- \n\n");
     printf("-------------- 1) Lata Refrigerante - R$ 3,50 ------------------------------------------------------------------------------ \n");
     printf("-------------- 2) Agua - Mineral R$ 2,00 ----------------------------------------------------------------------------------- \n");
